@@ -85,6 +85,33 @@ public class ComponentTest {
         frameWork.work(expecteds);
     }
     
+    @Test
+    public void testCompIterCondition() {
+        String[] expecteds = {
+                "leaf a-b",
+                "leaf c",
+                "leaf d-a",
+                "leaf d-b"
+        };
+        
+        FrameWork frameWork = new FrameWork() {
+            @Override
+            protected ArrayList<String> getList() {
+                ArrayList<String> ret = new ArrayList<String>();
+                Iterator<Component> it = root.componentIterator();
+                while (it.hasNext()) {
+                    Component cur = it.next();
+                    if (cur instanceof Leaf && cur.isRed()) {
+                        ret.add(cur.getString());
+                    }
+                }
+                return ret;
+            }
+        };
+        
+        frameWork.work(expecteds);
+    }
+    
     private abstract class FrameWork {
         private void work(String[] expecteds) {
             ArrayList<String> al = getList();
