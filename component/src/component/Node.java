@@ -21,5 +21,10 @@ public class Node extends Component
     public Iterator<Component> iterator() {
         return components.iterator();
     }
+
+    @Override
+    public Iterator<Component> componentIterator() {
+        return new ComponentIterator(this);
+    }
     
 }

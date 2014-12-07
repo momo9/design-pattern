@@ -22,7 +22,6 @@ public abstract class Component implements Iterable<Component> {
         throw new UnsupportedOperationException();
     }
     
-    public Iterator<Component> iterator() {
-        throw new UnsupportedOperationException();
-    }
+    public abstract Iterator<Component> componentIterator();
+        
 }
