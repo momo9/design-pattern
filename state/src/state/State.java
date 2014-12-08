@@ -9,8 +9,7 @@ public abstract class State {
     }
     
     public String pay(double money) {
-        machine.incMoney(money);
-        return machine.rollback();
+        return "refund " + money;
     }
     public String cancel() {
         return "nothing";

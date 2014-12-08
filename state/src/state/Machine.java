@@ -50,6 +50,13 @@ public class Machine {
         return price - money;
     }
     
+    String changeFund() {
+        double refund = money - price;
+        String ret = "refund " + refund;
+        money = 0.0;
+        return ret;
+    }
+    
     public String pay(double money) {
         return state.pay(money);
     }

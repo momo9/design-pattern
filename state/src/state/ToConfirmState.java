@@ -4,7 +4,6 @@ public class ToConfirmState extends State {
 
     public ToConfirmState(Machine machine) {
         super(machine);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
@@ -14,8 +13,15 @@ public class ToConfirmState extends State {
 
     @Override
     public String confirm() {
-        // TODO Auto-generated method stub
-        return null;
+        String ret = machine.changeFund();
+        ret = ret + ", begin to make";
+        try {
+            machine.setState("ok");
+        } catch (NoSuchFieldException | SecurityException
+                | IllegalArgumentException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return ret;
     }
 
 }
