@@ -49,6 +49,13 @@ public class StateTest {
         assertEquals("refund 5.0, begin to make", machine.confirm());
         
         // okState
+        assertEquals("refund 5.0", machine.pay(5.0));
+        assertEquals("nothing", machine.confirm());
+        assertEquals("nothing", machine.cancel());
+        assertEquals("get the juice", machine.get());
+        
+        // preState
+        assertEquals("4.0 paid, 4.0 in total", machine.pay(4.0));
         
     }
     

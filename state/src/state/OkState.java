@@ -4,19 +4,17 @@ public class OkState extends State {
 
     public OkState(Machine machine) {
         super(machine);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
-    public String cancel() {
-        // TODO Auto-generated method stub
-        return null;
+    public String get() {
+        try {
+            machine.setState("pre");
+        } catch (NoSuchFieldException | SecurityException
+                | IllegalArgumentException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return "get the juice";
     }
-
-    @Override
-    public String confirm() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
+    
 }
